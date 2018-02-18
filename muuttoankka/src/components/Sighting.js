@@ -13,7 +13,7 @@ class Sighting extends React.Component {
   }
 
   render() {
-    const { id, dateTime, description, species, count } = this.props
+    const { dateTime, description, species, count } = this.props
 
     const showWhenVisible = {
       display: this.state.visible ? '' : 'none',
