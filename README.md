@@ -2,6 +2,8 @@
 
 This is a solution to preliminary assignment for Vincet Summerjob.
 Created using React and Bootstrap.
+
+Application can be found in heroku: https://northernvincit.herokuapp.com/
 ## Install
 
 ```
@@ -26,4 +28,4 @@ $ PORT=<port> node server.js
 
 where you should replace `<port>` with wanted port number i.e. 3000.
 
-React page will be running in the adress: http://localhost:<port>/
+React page will be running in the adress: http://localhost:port/
