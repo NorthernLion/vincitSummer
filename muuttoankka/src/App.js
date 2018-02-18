@@ -3,6 +3,7 @@ import sightingsService from './services/Sightings'
 import speciesService from './services/Species'
 import SightingsList from './components/SightingsList'
 import SightingsForm from './components/SightingsForm'
+import Togglable from './components/Togglable'
 class App extends React.Component {
   constructor (props) {
     super(props)
@@ -36,17 +37,18 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
-        <SightingsList sightings={this.state.sightings}/>
-        <SightingsForm 
-          species={this.state.species}
-          handleChange={this.handleChange}
-          handlePost={this.handlePost}
-          handleDateTimeChange={this.state.handleDateTimeChange}
-          dateTime={this.state.dateTime}
-          description={this.state.description}
-          specie={this.state.specie}
-          count={this.state.count}
-        />
+        <SightingsList sightings={this.state.sightings} />      
+
+        <Togglable buttonLabel="Report new sighting">
+          <SightingsForm 
+            species={this.state.species}
+            handleChange={this.handleChange}
+            handlePost={this.handlePost}
+            description={this.state.description}
+            specie={this.state.specie}
+            count={this.state.count}
+          />
+        </Togglable>
       </div>
     )
   }
