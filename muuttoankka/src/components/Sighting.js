@@ -22,8 +22,8 @@ class Sighting extends React.Component {
 
     return (
       <div>
-        <div onClick={this.toggleVisibility}>{species}</div>
-        <div style={showWhenVisible}></div>
+        <div onClick={this.toggleVisibility}>{count} pieces of {species} seen at {dateTime.substring(0, 10)} at time {dateTime.substring(12, 19)}</div>
+        <div style={showWhenVisible}>{description}</div>
       </div>
     )
 
