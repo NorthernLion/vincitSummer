@@ -11,10 +11,9 @@ class App extends React.Component {
     this.state = {
       species: [],
       sightings: [],
-      dateTime: null,
       description: '',
       specie: '',
-      count: ''
+      count: 1
     }
   }
 
@@ -22,8 +21,32 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value })
   }
 
-  handlePost = (event) => {
+  handlePost = async (event) => {
     event.preventDefault()
+    if (this.validState()) {
+      const sighting = {
+        species: this.state.specie,
+        description: this.state.description,
+        dateTime: (new Date()).toISOString(),
+        count: this.state.count
+      }
+
+    const result = await sightingsService.create(sighting)
+
+    this.setState({
+      description: '',
+      specie: '',
+      count: 1,
+      sightings: this.state.sightings.concat(sighting)
+    })
+    } else {
+      console.log('Wrong information')
+    }
+  }
+
+  validState = () => {
+    const comparedSpecies = this.state.species.filter(spec => spec.name.includes(this.state.specie))
+    return (this.state.description && this.state.count > 0 && comparedSpecies.length > 0 && this.state.specie)
   }
 
   componentWillMount () {

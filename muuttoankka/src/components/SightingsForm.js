@@ -5,11 +5,11 @@ const SightingsForm = ({ species, handleChange, handlePost, description, specie,
   return (
     <div>
       <h1>Report a new sighting</h1>
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={handlePost}>
         <FormGroup>
           <ControlLabel>Specie</ControlLabel>
 
-          <FormControl componentClass="select" placeholder="Select a specie" name="specie" onChange={handleChange}>
+          <FormControl componentClass="select" placeholder={"Select a specie"} name="specie" onChange={handleChange}>
             <option value="select">Select...</option>
             {species.map(spec => <option key={spec.id} value={spec.name}> {spec.name}</option>)}
           </FormControl>
