@@ -1,6 +1,7 @@
 import React from 'react'
 import sightingsService from './services/Sightings'
 import speciesService from './services/Species'
+import SightingsList from './components/SightingsList'
 class App extends React.Component {
   constructor (props) {
     super(props)
@@ -11,10 +12,10 @@ class App extends React.Component {
   }
 
   componentWillMount () {
-    sightingsService.getAll.then(sightings => {
+    sightingsService.getAll().then(sightings => {
       this.setState({ sightings })
     })
-    speciesService.getAll.then(species => {
+    speciesService.getAll().then(species => {
       this.setState({ species })
     })
   }
@@ -22,9 +23,7 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
-        <p className="App-intro">
-          Hello World
-        </p>
+        <SightingsList sightings={this.state.sightings}/>
       </div>
     )
   }
