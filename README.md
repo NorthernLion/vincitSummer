@@ -1,7 +1,7 @@
 # DuckWatch
 
 This is a solution to preliminary assignment for Vincet Summerjob.
-Created using React and Bootstrap. Server is run with code given in the assignment.
+Created using React and Bootstrap.
 ## Install
 
 ```
