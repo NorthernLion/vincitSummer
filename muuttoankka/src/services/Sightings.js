@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:8001/sightings'
+const baseUrl = 'http://localhost:8081/sightings'
 
 const getAll = async () => {
   const response = await axios.get(baseUrl)
