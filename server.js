@@ -1,4 +1,5 @@
-const app = require('express')();
+const express = require('express')
+const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser');
 
@@ -81,6 +82,8 @@ const sightings = [
     count: 5
   }
 ];
+
+app.use(express.static('build'))
 
 //Enable CORS
 app.use((req, res, next) => {
