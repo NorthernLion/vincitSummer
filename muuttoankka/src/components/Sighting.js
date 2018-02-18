@@ -13,7 +13,7 @@ class Sighting extends React.Component {
   }
 
   render() {
-    const { dateTime, description, species, count } = this.props
+    const { id, dateTime, description, species, count } = this.props
 
     const showWhenVisible = {
       display: this.state.visible ? '' : 'none',
@@ -21,9 +21,16 @@ class Sighting extends React.Component {
     }
 
     return (
-      <div>
-        <div onClick={this.toggleVisibility}>{count} pieces of {species} seen at {dateTime.substring(0, 10)} at time {dateTime.substring(12, 19)}</div>
-        <div style={showWhenVisible}>{description}</div>
+      <div className='container'>
+        <tr key={id}>
+          <td>
+              <div onClick={this.toggleVisibility}>{count} pieces of {species} seen at {dateTime.substring(0, 10)} at time {dateTime.substring(12, 19)}</div>
+              <div style={showWhenVisible}>{description}</div>
+          </td>
+          <td>
+            afefeaf
+          </td>
+        </tr>
       </div>
     )
 

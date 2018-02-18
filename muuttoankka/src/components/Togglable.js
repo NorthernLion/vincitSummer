@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 
 class Togglable extends React.Component {
   constructor(props) {
@@ -19,11 +20,12 @@ class Togglable extends React.Component {
     return (
       <div>
         <div style={hideWhenVisible}>
-          <button onClick={this.toggleVisibility}>{this.props.buttonLabel}</button>
+          <Button bsStyle="success" type="submit" onClick={this.toggleVisibility}>{this.props.buttonLabel}</Button>
         </div>
         <div style={showWhenVisible}>
           {this.props.children}
-          <button onClick={this.toggleVisibility}>cancel</button>
+          <p></p>
+          <Button bsStyle="danger" onClick={this.toggleVisibility}>cancel</Button>
         </div>
       </div>
     )

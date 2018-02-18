@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
+import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap'
 
 const SightingsForm = ({ species, handleChange, handlePost, description, specie, count }) => {
   return (
@@ -11,7 +11,7 @@ const SightingsForm = ({ species, handleChange, handlePost, description, specie,
 
           <FormControl componentClass="select" placeholder="Select a specie" name="specie" onChange={handleChange}>
             <option value="select">Select...</option>
-            {species.map(specie => <option value={specie.name}>{specie.name}</option>)}
+            {species.map(spec => <option key={spec.id} value={spec.name}> {spec.name}</option>)}
           </FormControl>
 
           <ControlLabel>Count</ControlLabel>
@@ -21,10 +21,7 @@ const SightingsForm = ({ species, handleChange, handlePost, description, specie,
           <ControlLabel>Description</ControlLabel>
           <FormControl componentClass="textarea" value={description} name="description" onChange={handleChange} />
         </FormGroup>
-
-        <FormGroup>
-          <input type="submit" value="Submit" />
-        </FormGroup>
+        <Button bsStyle="success" type="submit">create</Button>
       </form>
     </div>
   )
